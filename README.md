@@ -5,10 +5,10 @@
 
 
 
-<div align="center"style="font-size:30px;">
+<div align="center"style="font-size:50px;">
 
 # ![logo](/Assets/Logo.png "Logo.png")
 
-###### FOSS Instagram OSINT tool
+##### FOSS Instagram OSINT tool
 
 </div>

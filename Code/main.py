@@ -40,7 +40,7 @@ def startUpFail():
 
 
 def main():
-    from CLIside import printLogo
+    from Frontend import printLogo
     import argparse        
     import time       
     

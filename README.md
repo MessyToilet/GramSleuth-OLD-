@@ -9,6 +9,6 @@
 
 # ![logo](/Assets/Logo.png "Logo.png")
 
-### FOSS Instagram OSINT tool
+## FOSS Instagram OSINT tool
 
 </div>

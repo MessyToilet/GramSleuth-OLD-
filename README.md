@@ -24,4 +24,10 @@
 
 # Capabilities
 
-# Dev Team
+- Identify common followers
+- Identify posible friends
+- Identify media consumption type based on accounts/ hashtags followed
+- Pull meta data from person's/ person's friend's posts
+
+
+

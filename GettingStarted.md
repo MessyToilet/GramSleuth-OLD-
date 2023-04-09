@@ -4,6 +4,8 @@
 - instagrapi
 - pillow
 - colorama
+
+```python -m pip install argparse instagrapi pillow colorama ```
 ---
 
 ## argparse

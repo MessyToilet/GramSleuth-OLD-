@@ -5,7 +5,7 @@
 
 
 
-<div align="center"style="font-size:50px;">
+<div align="center">
 
 # ![logo](/Assets/Logo.png "Logo.png")
 

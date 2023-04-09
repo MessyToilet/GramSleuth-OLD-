@@ -5,7 +5,6 @@
 
 def main():
     from CLIside import printLogo
-    import instagrapi
     import argparse        
     import time       
     

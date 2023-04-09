@@ -61,4 +61,4 @@
 # TO DO
 
 - integrate sock5 to protect our IP address
-- develope spyware B)
+- develop spyware B)

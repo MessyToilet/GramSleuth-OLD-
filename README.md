@@ -17,3 +17,11 @@
 > When it comes to privacy and accountability, people always demand the former for themselves and the latter for everyone else. 
 >
 > \- David Brin
+
+---
+
+# Query Construction
+
+# Capabilities
+
+# Dev Team

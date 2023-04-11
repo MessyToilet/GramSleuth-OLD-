@@ -19,23 +19,21 @@ def main():
 
     cl = Client()
 
-    # while True:
-    #     try:
-    #         username = str(input("USERNAME: "))
-    #         password = getpass("PASSWORD: ")
-    #         cl.login(username, password)
-    #         print(f"\nLogin Successful")
-    #         time.sleep(1)
-    #         os.system("cls")
-    #         printLogo("green")
-    #         break 
-    #     except:
-    #         os.system("cls")
-    #         printLogo("green")
-    #         print(f"\nERROR: could not login\n")
-    #         pass
-
-    cl.login("gramsleuthtest", "BigNut123")
+    while True:
+        try:
+            username = str(input("USERNAME: "))
+            password = getpass("PASSWORD: ")
+            cl.login(username, password)
+            print(f"\nLogin Successful")
+            time.sleep(1)
+            os.system("cls")
+            printLogo("green")
+            break 
+        except:
+            os.system("cls")
+            printLogo("green")
+            print(f"\nERROR: could not login\n")
+            pass
 
     #---# get target user info
 

@@ -19,36 +19,45 @@ def main():
 
     cl = Client()
 
+    # while True:
+    #     try:
+    #         username = str(input("USERNAME: "))
+    #         password = getpass("PASSWORD: ")
+    #         cl.login(username, password)
+    #         print(f"\nLogin Successful")
+    #         time.sleep(1)
+    #         os.system("cls")
+    #         printLogo("green")
+    #         break 
+    #     except:
+    #         os.system("cls")
+    #         printLogo("green")
+    #         print(f"\nERROR: could not login\n")
+    #         pass
+
+    cl.login("gramsleuthtest", "BigNut123")
+
+    #---# get target user info
+
     while True:
-        try:
-            username = str(input("USERNAME: "))
-            password = getpass("PASSWORD: ")
-            cl.login(username, password)
-            print(f"\nLogin Successful")
-            time.sleep(2)
-            os.system("cls")
-            printLogo("green")
-            break 
-        except:
-            os.system("cls")
-            printLogo("green")
-            print(f"\nERROR: could not login\n")
-            pass
+        target_user_id   = cl.user_id_from_username(str(input(f"TARGET USERNAME: ")))
+        target_user_info = cl.user_info(target_user_id)
+        target_user_bio  = target_user_info.biography.replace("                                                    ","\n\t\t\t ")
 
-    #---# get target user
-
-    while True:
-        os.system("cls")
-        printLogo("green")
-
-        target_user_id = cl.user_id_from_username(str(input(f"TARGET USERNAME: ")))
- 
         print(f"\nUSER INFO:\n")
-        print("\tUSER ID:", target_user_id)
-        print("\tFOLLOWING:", len(cl.user_following(target_user_id, 10)))
-        print("\tFOLLOWING:", len(cl.user_following_gql(target_user_id, 10)))
-        print("\tFOLLOWERS:", len(cl.user_followers(target_user_id, 10)))
-        print("\tFOLLOWERS:", len(cl.user_followers_gql(target_user_id, 10)))
+        print("\tUSER ID:\t", target_user_id)
+        print("\tBIO:\t\t", target_user_bio)
+        print("\tFOLLOWERS:\t", target_user_info.follower_count)
+        print("\tFOLLOWING:\t", target_user_info.following_count)
+        print("\tPROFILE PIC:\t", target_user_info.profile_pic_url)
+
+        if str(input(f"\nIS THIS CORRECT USER? (y/n): ")).upper() in ["N", "NO"]:
+            pass 
+
+        
+
+
+        
 
     return
 

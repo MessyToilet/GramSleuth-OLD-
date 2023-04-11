@@ -1,13 +1,11 @@
-
+import sys
 
 def main():
-    
     from Frontend import printLogo
     from instagrapi import Client
     from getpass import getpass
     import argparse        
     import time       
-    import sys
     import os
     
     #---# init program: clear screen, display logo
@@ -61,3 +59,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    sys.exit()

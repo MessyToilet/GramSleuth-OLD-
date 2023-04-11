@@ -42,7 +42,9 @@ def main():
 
         print(f"\nUSER INFO:\n")
         print("\tUSER ID:\t", target_user_id)
+        print("\tVERIFIED:\t", target_user_info.is_verified)
         print("\tBIO:\t\t", target_user_bio)
+        print("\tMEDIA COUNT:\t", target_user_info.media_count)
         print("\tFOLLOWERS:\t", target_user_info.follower_count)
         print("\tFOLLOWING:\t", target_user_info.following_count)
         print("\tPROFILE PIC:\t", target_user_info.profile_pic_url)
@@ -50,7 +52,12 @@ def main():
         if str(input(f"\nIS THIS CORRECT USER? (y/n): ")).upper() in ["N", "NO"]:
             pass 
 
-        
+        print("\n\tPRIVATE:\t",target_user_info.is_private)
+        if target_user_info.is_private == True:
+            print("\t\t\t you will need to sign into an account following the target or request to follow...")
+            if str(input(f"REQUEST TO FOLLOW? (y/n): ")).upper() in ["Y", "YES"]:
+                cl.user_follow(target_user_id)
+                print("Requested to follow...")
 
 
         

@@ -24,10 +24,26 @@
 
 # Capabilities
 
-- Identify common followers
-- Identify posible friends
-- Identify media consumption type based on accounts/ hashtags followed
-- Pull meta data from person's/ person's friend's posts
+- [x] Identify common followers
+- [x] Identify posible friends
+- [x] Identify bots following target and bots target follows
+- [x] Identify media consumption type based on accounts/ hashtags followed
+- [x] Pull meta data from person's/ person's friend's posts
+
+---
+## Steps
+
+1. Account creation
+2. grow account
+3. spearfish target
+4. collect data
+
+## Account creation
+
+
+
+
+
 
 
 

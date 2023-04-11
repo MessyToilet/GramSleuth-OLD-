@@ -1,9 +1,12 @@
 import sys
 
+
 def main():
     from Frontend import printLogo
+    from Backend import esc_key_pressed
     from instagrapi import Client
     from getpass import getpass
+    
     import argparse        
     import time       
     import os
@@ -18,6 +21,9 @@ def main():
     cl = Client()
 
     while True:
+        if esc_key_pressed == True:
+            print("Quiting program...")
+            return
         try:
             username = str(input("USERNAME: "))
             password = getpass("PASSWORD: ")
@@ -35,8 +41,15 @@ def main():
 
     #---# get target user info
 
-    while True:
-        target_user_id   = cl.user_id_from_username(str(input(f"TARGET USERNAME: ")))
+    while True:        
+        client_following = cl.user_following(cl.user_id_from_username(username))
+
+        if esc_key_pressed == True:
+            print("Quiting program...")
+            time.sleep(1)
+            return
+
+        target_user_id   = cl.user_id_from_username(str(input(f"\nTARGET USERNAME: ")))
         target_user_info = cl.user_info(target_user_id)
         target_user_bio  = target_user_info.biography.replace("                                                    ","\n\t\t\t ")
 
@@ -52,13 +65,22 @@ def main():
         if str(input(f"\nIS THIS CORRECT USER? (y/n): ")).upper() in ["N", "NO"]:
             pass 
 
+        if esc_key_pressed == True:
+            print("Quiting program...")
+            time.sleep(1)
+            return
+
         print("\n\tPRIVATE:\t",target_user_info.is_private)
-        if target_user_info.is_private == True:
+        if target_user_info.is_private == True and target_user_info.username not in client_following:
             print("\t\t\t you will need to sign into an account following the target or request to follow...")
-            if str(input(f"REQUEST TO FOLLOW? (y/n): ")).upper() in ["Y", "YES"]:
+            if str(input(f"\nREQUEST TO FOLLOW? (y/n): ")).upper() in ["Y", "YES"]:
                 cl.user_follow(target_user_id)
                 print("Requested to follow...")
 
+        
+
+
+        
 
         
 

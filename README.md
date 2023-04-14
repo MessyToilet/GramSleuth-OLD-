@@ -9,7 +9,7 @@
 
 # ![logo](/Assets/Logo.png "Logo.png")
 
-## FOSS Instagram OSINT tool
+## FOSS Instagram OSINT tool :eye_speech_bubble:
 
 </div>
 
@@ -20,7 +20,7 @@
 
 ---
 
-# Query Construction
+# :hammer_and_pick: Query Construction
 
 # Capabilities
 

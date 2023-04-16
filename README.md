@@ -22,7 +22,7 @@
 
 # :hammer_and_pick: Query Construction
 
-# Capabilities
+# :handshake: Capabilities
 
 - [x] Identify common followers
 - [x] Identify posible friends

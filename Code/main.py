@@ -3,7 +3,7 @@ import sys
 
 def main():
     from Frontend import printLogo
-    from Backend import esc_key_pressed
+    from Backend import login
     from instagrapi import Client
     from getpass import getpass
     
@@ -22,23 +22,18 @@ def main():
     cl = Client()
 
     while True:
-        if esc_key_pressed == True:
-            print("Quiting program...")
-            return
-        try:
-            username = str(input("USERNAME: "))
-            password = getpass("PASSWORD: ")
-            cl.login(username, password)
-            print(f"\nLogin Successful")
-            time.sleep(1)
-            os.system("cls")
-            printLogo("green")
+
+        username = str(input("USERNAME: "))
+        password = getpass("PASSWORD: ")
+        done = login(username, password)
+
+        time.sleep(1)
+        os.system("cls")
+        printLogo("green")
+
+        if done:
             break 
-        except:
-            os.system("cls")
-            printLogo("green")
-            print(f"\nERROR: could not login\n")
-            pass
+
 
     #---# get target user info
 

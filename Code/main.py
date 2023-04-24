@@ -1,46 +1,34 @@
-import sys
-
+from Backend import *
+from Frontend import *
 
 def main():
-    from Frontend import printLogo
-    from Backend import login
     from instagrapi import Client
     from getpass import getpass
     
     import argparse        
     import time       
-    import os
     import re
-    
-    #---# init program: clear screen, display logo
-
-    os.system("cls")
-    printLogo("green")
 
     #---# init user: grab login and login to account
 
     cl = Client()
 
     while True:
-
+        printLogo("green")
         username = str(input("USERNAME: "))
         password = getpass("PASSWORD: ")
-        done = login(username, password)
 
-        time.sleep(1)
-        os.system("cls")
-        printLogo("green")
+        if username == "!" or password == "!":
+            endProgram()
+            continue
 
-        if done:
+        if login(username, password):
             break 
 
 
     #---# get target user info
 
     while True:  
-    
-        client_following = cl.user_following(cl.user_id_from_username(username))
-
         while True:
             try:
                 target_username = str(input(f"\nTARGET USERNAME: "))
@@ -81,4 +69,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    sys.exit()
+

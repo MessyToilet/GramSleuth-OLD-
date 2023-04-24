@@ -30,12 +30,15 @@ def main():
 
     while True:  
         while True:
-            try:
-                target_username = str(input(f"\nTARGET USERNAME: "))
-                target_user_id   = cl.user_id_from_username(target_username)
-                break 
-            except:
-                print("Could not find user...")
+            target_username = str(input(f"TARGET USERNAME: "))
+ 
+            if target_username == "!":
+                endProgram()
+                continue
+
+            targetUserID(target_username)
+
+
         target_user_info = cl.user_info(target_user_id)
         target_user_bio  = target_user_info.biography.replace("                                                    ","\n\t\t\t ")
 

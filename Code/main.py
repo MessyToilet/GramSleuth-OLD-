@@ -36,7 +36,7 @@ def main():
                 endProgram()
                 continue
             
-            if isinstance(targetUserID(target_username), dict):
+            if isinstance(targetUserID(target_username), str):
                 print(f"user found")
                 break
 

@@ -37,19 +37,18 @@ def login(username, password):
         return False
 
 def targetUserID(targetUser):
-    if targetUser in targetUserID:
-        return targetUserID.get(targetUser)
-    else:
-        try:
-            TarUsID = cl.user_id_from_username(targetUser)
-            targetUserID.add(targetUser, TarUsID)
-            return targetUserID.get(targetUser)
-        except:
-            print("\nERROR: couldn't find user")
-            return False
+    global targetUserID
+    try:
+        targetUserID = cl.user_id_from_username(targetUser)
+        return targetUserID
+    except:
+        print("\nERROR: couldn't find user")
+        return False
     
 
 def userInfo(targetUser):
+    print(f"\nUSER INFO:\n")
+    
     return True
 
 def getBotsFollowing(targetUser):
@@ -76,15 +75,13 @@ def endProgram():
         return
     
 #---# Global Vars
-userName = ""
-targetUserID = {}
-
+userName      = ""
 userFollowing = []
-targetUserFollowing = {}
-
 userFollowers = []
-targetUserFollowers = {}
+userBio       = ""
 
-userBio = ""
-targetUserBio = {}
+targetUserID        = ""
+targetUserFollowing = []
+targetUserFollowers = []
+targetUserBio       = ""
 

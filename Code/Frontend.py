@@ -41,5 +41,10 @@ def printLogo(color = 'white'):
     os.system("cls")
     print('\n'.join(centered_lines))
 
+def helpPage():
+    print(f"HELP MENU")
+    print(f"\nAll help commands start with !")
+    print(f"exit\t- Exit program.")
+    print(f"help\t- bring up help menu.")
 
     

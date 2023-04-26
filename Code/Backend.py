@@ -10,20 +10,36 @@ cl = Client()
 #---# Functions
 
 def login(username, password):
-    global userName
+    global userName                                                                         #bring in global var
+    proxyList = [["PROXY NAME", "PROXY ADDRESS"]]                                           #list of free proxies
     try:
-        cl.login(username, password)
+        cl.login(username, password)                                                        #try login
         userName = username
-        print(f"\nLogin Successful")
+        print(f"\nLogin Successful")                                                        #print login successful
+        try:
+            if str(input("Do you have your own proxy? (y/n): ")).upper() == "Y":            #if user had paid proxy
+                try:
+                    print(f"Setting proxy...")
+                    cl.set_proxy(str(input("Proxy Address: ")))                             #try to join paid proxy
+                    print(f"Proxy Set :)")                                                  #print success
+                    return True                                                             #end func
+                except:
+                    print(f"ERROR: Proxy login failed, trying free proxy sites...")         #if ERROR in proxy print error
+            print(f"Setting proxy...")                              
+            cl.set_proxy("socks5://127.0.0.1:30235")                                        #Try joining free proxy
+            print(f"Proxy set :)")
+        except:
+            print(f'ERROR: could not set proxy')                                            #if ERROR joining free proxy print error
+            return False
         return True 
     except:
-        print("\nERROR: could not login")
+        print("\nERROR: could not login")                                                   #if ERROR loging in print error
         return False
 
 def targetUserID(targetUser):
-    try:
+    if targetUser in targetUserID:
         return targetUserID.get(targetUser)
-    except:
+    else:
         try:
             TarUsID = cl.user_id_from_username(targetUser)
             targetUserID.add(targetUser, TarUsID)

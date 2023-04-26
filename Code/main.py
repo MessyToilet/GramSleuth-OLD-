@@ -13,7 +13,8 @@ def main():
 
     cl = Client()
 
-    while True:
+    loginPassed = False
+    while not loginPassed:
         printLogo("green")
         username = str(input("USERNAME: "))
         password = getpass("PASSWORD: ")
@@ -22,34 +23,34 @@ def main():
             endProgram()
             continue
 
-        if login(username, password):
-            break 
+        loginPassed = login(username, password)
 
 
     #---# get target user info
 
     while True:  
         while True:
-            target_username = str(input(f"TARGET USERNAME: "))
+            target_username = str(input(f"\nTARGET USERNAME: "))
  
             if target_username == "!":
                 endProgram()
                 continue
+            
+            if isinstance(targetUserID(target_username), dict):
+                print(f"user found")
+                break
 
-            targetUserID(target_username)
 
-
-        target_user_info = cl.user_info(target_user_id)
-        target_user_bio  = target_user_info.biography.replace("                                                    ","\n\t\t\t ")
+            
 
         print(f"\nUSER INFO:\n")
-        print("\tUSER ID:\t", target_user_id)
-        print("\tVERIFIED:\t", target_user_info.is_verified)
-        print("\tBIO:\t\t", target_user_bio)
-        print("\tMEDIA COUNT:\t", target_user_info.media_count)
-        print("\tFOLLOWERS:\t", target_user_info.follower_count)
-        print("\tFOLLOWING:\t", target_user_info.following_count)
-        print("\tPROFILE PIC:\t", target_user_info.profile_pic_url)
+        print("\tUSER ID:\t", targetUserID(target_username))
+        print("\tVERIFIED:\t", targetUserID(target_username).is_verified)
+        print("\tBIO:\t\t", targetUserID(target_username))
+        print("\tMEDIA COUNT:\t", targetUserID(target_username).media_count)
+        print("\tFOLLOWERS:\t", targetUserID(target_username).follower_count)
+        print("\tFOLLOWING:\t", targetUserID(target_username).following_count)
+        print("\tPROFILE PIC:\t", targetUserID(target_username).profile_pic_url)
 
         if str(input(f"\nIS THIS CORRECT USER? (y/n): ")).upper() not in ["N", "NO"]:
         

@@ -2,7 +2,7 @@ from instagramapi import *
 import time
 import sys
 
-init("C:\\Program Files (x86)\\chromedriver.exe")
+init("GramSleuth\\requirments\\chromedriver.exe")
 
 #---#   START login seqeunce 
 Uname = str(input("Username: "))

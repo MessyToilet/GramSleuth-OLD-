@@ -1,14 +1,19 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys 
+from instagramapi import *
 import time
+import sys
 
+init("C:\\Program Files (x86)\\chromedriver.exe")
 
-PATH = "C:\\Program Files (x86)\\chromedriver.exe"
-driver = webdriver.Chrome(PATH)
+#---#   START login seqeunce 
+Uname = str(input("Username: "))
+Upass = str(input("Password: "))
 
-driver.get("https://www.instagram.com")
-print(driver.title)
+login(Uname, Upass)
+#---#   END login sequence
 
+goHome()
+debug()
 
-time.sleep(10)
-driver.quit()
+if str(input("Quit (y/n): ")).upper() == "Y":
+    quit()
+    sys.exit()

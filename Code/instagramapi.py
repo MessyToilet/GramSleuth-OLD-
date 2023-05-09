@@ -116,18 +116,26 @@ def goSearch(user=True):
     - globalize driver
     - find search by xpath and click
     - return true if passed, false otherwise
+    - goSearch is also used to reach a users profile
     - sleep is used to avoid detection
     """
-    if user == True:
-        try:
-            global driver
-            driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a').click()
-            time.sleep(1)
-            return True 
-        except:
-            return False 
-    else:
-        pass #send keys
+    try:
+        global driver
+        driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a').click()
+        time.sleep(1)
+        if user != True:
+            try:
+                sendKeys(user)
+                driver.send_keys(Keys.ARROW_DOWN)
+                driver.send_Keys(Keys.RETURN)
+                return True
+            except:
+                return False
+        else:
+            return True
+    except:
+        return False 
+
 
 def goExplore():
     """
@@ -234,18 +242,22 @@ def goMore():
     except:
         return False
 
+def sendKeys(string):
+    global driver
+    try:
+        for chr in string:
+            driver.send_keys(str(chr))
+        driver.send_keys(Keys.RETURN)
+        return True
+    except:
+        return False
 
 #---#   Mid Level Actions
 
 
 def getInfo(user=True):
-    global driver
-    if user == True:
-        goProfile()
-        getFollowers()
-        getFollowing()
-    else:
-        goSearch(user)
+    getFollowers(user)
+    getFollowing(user)
         
 
 def getFollowers(user=True):
@@ -267,16 +279,46 @@ def getFollowing(user=True):
 
 
 def findGhostFollowers(user=True):
-    return 
+    global driver 
+    if user == True:
+        pass 
+    else:
+        pass
 
 def findBotFollowers(user=True):
-    return 
+    global driver 
+    if user == True:
+        pass 
+    else:
+        pass
 
 def findGhostFollowing(user=True):
-    return 
+    global driver 
+    if user == True:
+        pass 
+    else:
+        pass 
 
 def findBotFollowing(user=True):
-    return 
+    global driver 
+    if user == True:
+        pass 
+    else:
+        pass
+
+def findFollowersNotFollowingBack(user=True):
+    global driver 
+    if user == True:
+        pass 
+    else:
+        pass
+
+def findFollowingNotFollowingBack(user=True):
+    global driver 
+    if user == True:
+        pass 
+    else:
+        pass
 
 def parseBio(bio_element):
     return

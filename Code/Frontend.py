@@ -1,4 +1,3 @@
-#Comment test
 def printLogo(color = 'white'):
     import shutil                       
     from colorama import Fore, Style

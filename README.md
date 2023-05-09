@@ -20,9 +20,7 @@
 
 ---
 
-# :hammer_and_pick: Query Construction
-
-# :handshake: Capabilities
+## :handshake: Capabilities
 
 - [x] Identify common followers
 - [x] Identify posible friends
@@ -31,16 +29,18 @@
 - [x] Pull meta data from person's/ person's friend's posts
 
 ---
-## Steps
+## :foot: Steps
 
 1. Account creation
 2. grow account
 3. spearfish target
 4. collect data
 
-## Account creation
+## :rotating_light: Warning
 
+Using any kind of instagram bot or automation software goes against Instagrams TOS, so the instagram account you use is at risk of being restricted or banned, and ip address blocked.
 
+WE DO NOT CONDON ANY USE OF GRAMSLEUTH OR ANY INSTAGRAM AUTOMATION SOFTWARE. This program is a proof of concept and is ment for research only, we do not take accounablity if this tool is used without specific permision from instagram.
 
 
 

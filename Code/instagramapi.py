@@ -269,13 +269,34 @@ def getInfo(user=True):
         
 
 def getFollowers(user=True):
+    """
+    - if user checking bot followers go to profile else go search user
+    find the element that contains the list of followers
+    hit tab 31 times to get past first block then log html code
+    tabs through until html code no longer updates (all elements cached/ we can now parse data)
+    """
+
     global driver
     if user == True:
         goProfile()
     else:
         goSearch(user)
-    driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/ul/li[3]/a').click()
 
+    driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/ul/li[3]/a').click()
+    print("before 31 for loop")
+    for i in range(31):
+        driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[3]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[2]").send_keys(Keys.TAB)
+    html_old = driver.page_source
+    print("after 31 for loop")
+    while True:
+        for k in range(6):      #6 users per block
+            for i in range(5):  # tabs through one user profile
+                driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[3]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[2]").send_keys(Keys.TAB)
+        time.sleep(1)
+        if driver.page_source == html_old: 
+            break
+    print("out while loop")
+    #followers = driver.find_elements(By.XPATH, "")
 
 def getFollowing(user=True):
     global driver

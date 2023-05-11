@@ -1,6 +1,5 @@
 from instagramapi import *
 from Frontend import printLogo
-from getpass import getpass
 import sys
 import pwinput
 
@@ -11,9 +10,6 @@ printLogo("green")
 
 Uname = str(input("Username: "))
 Upass = pwinput.pwinput(prompt="Password: ", mask="*")
-
-
-#Upass = str(getpass("Password: "))
 
 login(Uname, Upass)
 goHome()

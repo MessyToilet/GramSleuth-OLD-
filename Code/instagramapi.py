@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys 
 from selenium.webdriver.common.by import By
+import pickle as pk
 import time
 
 
@@ -13,12 +14,16 @@ def init(PATH):
     - globalize driver
     - init with chrome webdriver
     - connect to instagram 
+    - add cookies
     - retrun true is passed, false otherwise
     '''
     try:
         global driver
         driver = webdriver.Chrome(PATH)
         driver.get("https://www.instagram.com/")
+        cookies = pk.load(open("cookies.pkl", "rb"))
+        for cookie in cookies:
+            driver.add_cookie(cookie)
         return True
     except:
         return False
@@ -64,10 +69,13 @@ def login(username, password):
 
 def quit():
     '''
+    - save cookies
     - quit selenium
     '''
     global driver
+    pk.dump(driver.get_cookies(), open("cookies.pkl", "wb"))
     driver.quit()
+
     return
     
 def debug():
@@ -135,7 +143,6 @@ def goSearch(user=True):
             return True
     except:
         return False 
-
 
 def goExplore():
     """
@@ -252,6 +259,7 @@ def sendKeys(string):
     except:
         return False
 
+
 #---#   Mid Level Actions
 
 
@@ -266,6 +274,8 @@ def getFollowers(user=True):
         goProfile()
     else:
         goSearch(user)
+    driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/ul/li[3]/a').click()
+
 
 def getFollowing(user=True):
     global driver

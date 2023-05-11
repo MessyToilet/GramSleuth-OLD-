@@ -1,7 +1,8 @@
 from instagramapi import *
 from Frontend import printLogo
-import time
+from getpass import getpass
 import sys
+import pwinput
 
 init("GramSleuth\\requirments\\chromedriver.exe")
 
@@ -9,7 +10,10 @@ init("GramSleuth\\requirments\\chromedriver.exe")
 printLogo("green")
 
 Uname = str(input("Username: "))
-Upass = str(input("Password: "))
+Upass = pwinput.pwinput(prompt="Password: ", mask="*")
+
+
+#Upass = str(getpass("Password: "))
 
 login(Uname, Upass)
 goHome()
@@ -41,6 +45,6 @@ while True:
     if choice == '10':
         getFollowers()
 
-    if choice.upper() == "Q":
+    if choice.upper() in ['Q', 'QUIT']:
         quit()
         sys.exit()

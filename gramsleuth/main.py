@@ -1,11 +1,11 @@
-from instagramapi import *
+from gramsleuth.instagramapi import *
 from Frontend import printLogo
 import sys
 import pwinput
 
-init("GramSleuth\\requirments\\chromedriver.exe")
+init()
 
-#---#   START login seqeunce 
+# ---#   START login sequence
 printLogo("green")
 
 Uname = str(input("Username: "))
@@ -13,13 +13,14 @@ Upass = pwinput.pwinput(prompt="Password: ", mask="*")
 
 login(Uname, Upass)
 goHome()
-#---#   END login sequence
+# ---#   END login sequence
 
 goProfile()
 
-
 while True:
-    choice = str(input("\n1. Go Home\t\t4. Go Reels\t\t7. Go Create\n2. Go Search\t\t5. Go Messages\t\t6. Go Notifications\n3. Go Explore\t\t8. Go Profile\t\t9. Go More\n10. test (get followers) \t11. Quit (Q)\n\n"))
+    choice = str(input(
+        "\n1. Go Home\t\t4. Go Reels\t\t7. Go Create\n2. Go Search\t\t5. Go Messages\t\t6. Go Notifications\n3. Go "
+        "Explore\t\t8. Go Profile\t\t9. Go More\n10. test (get followers) \t11. Quit (Q)\n\n"))
     if choice == '1':
         goHome()
     if choice == '2':

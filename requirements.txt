@@ -1,0 +1,8 @@
+selenium 
+pwinput
+colorama
+instaloader
+pillow
+shutil
+colorama
+beautifulsoup4

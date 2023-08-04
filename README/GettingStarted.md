@@ -5,7 +5,7 @@
 - pillow
 - colorama
 
-#### `` python -m pip install argparse instagrapi pillow colorama ``
+#### `` python -m pip install -r requirements.txt ``
 ---
 
 ## argparse

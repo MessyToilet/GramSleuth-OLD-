@@ -1,16 +1,16 @@
-import instaloader
+import requests
+from bs4 import BeautifulSoup
 
-loader = instaloader.Instaloader()
-loader.login("gramsleuth4", "BigNut123")
+response = requests.get("https://www.instagram.com/accounts/login/")
+html_content = response.text
 
-target = str(input("Target Username: "))
+# Create a BeautifulSoup object to parse the HTML
+soup = BeautifulSoup(html_content, 'html.parser')
 
-profile = instaloader.Profile.from_username(loader.context, target)
-followers = profile.get_followers()
-followees = profile.get_followees()
+# Extract specific information from the HTML using BeautifulSoup methods
+# For example, to find all the <a> tags in the HTML:
+a_tags = soup.find_all('a')
 
-for follower in followers:
-    print(follower)
-print()
-for followee in followees:
-    print(followee)
+# Print the extracted information
+for tag in a_tags:
+    print(tag.text)
